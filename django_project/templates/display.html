@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Logs</title>
+  <link href= "{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="card-holder">
+    <div class=card>
+      <form method="post" >
+        {% csrf_token %}
+        <div>
+            <label for="{{ form.days.id_for_label }}">Select a day:</label>
+            <select name="myDay">
+                <option value="" disabled>Select an option</option>
+                {% for choice in form.days.field.queryset %}
+                    <option value="{{ choice }}">{{ choice }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="{{ form.regions.id_for_label }}">Select a region:</label>
+            <select name="myRegion">
+                <option value="" disabled>Select an option</option>
+                {% for choice in form.regions.field.queryset %}
+                    <option value="{{ choice }}">{{ choice }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="View Tickets">
+      </form>
+      <br>
+      <br>
+    <table>
+        <tr><th>Street Name</th><th>Time</th><th>Date</th></tr>
+        {% for ticket in tickets %}
+        <tr><td>{{ticket.location}}</td></td>
+            <td>{{ticket.date_time|date:"H:i"}}</td>
+            <td>{{ticket.date_time|date:"m-j-Y"}}</td>
+            </tr>
+        {% endfor %}
+      </table>
+      <br>
+    <a href="{% url 'home' %}"> Add New Ticket </a>
+    </div>
+  </div>
+</body>
+</html>

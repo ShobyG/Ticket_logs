@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Log Form</title>
+  <link href= "{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="card-holder">
+    <div class=card>
+    <form method="post" >
+      {% csrf_token %}
+      <div>
+        <label for="{{ form.date_time.id }}"> Date and Time </label>
+        <input type="datetime-local" name="{{ form.date_time.name }}">
+      </div>
+      <br>
+      <div>
+        <label for="{{ form.location.id }}"> Street Name </label>
+        <input type="text" name="{{ form.location.name }}">  
+      </div>
+      <br>
+      <div>
+          <label for="{{ form.region.id_for_label }}">Region:</label>
+        <select name="{{ form.region.name }}">
+            <option value="" disabled>Select an option</option>
+            {% for choice in form.region.field.queryset %}
+                <option value="{{ choice.pk }}">{{ choice.name }}</option>
+            {% endfor %}
+        </select>
+      </div>
+      <div class="row">
+          <div class="col1">
+            <a href="{% url 'logs' %}" class= "button-link"> Tickets History </a>
+          </div>
+          <div class ="col2">
+            <input type="submit" value="Add Ticket">
+          </div> 
+      </div>
+    </form>
+    </div>
+  </div>  
+</body>
+</html>

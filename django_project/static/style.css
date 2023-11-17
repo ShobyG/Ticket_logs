@@ -1,0 +1,94 @@
+
+.card{
+  justify-content: space-between;
+  max-width: 320px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  display: inline-block;
+  background-color: #cdd5d1;
+  float: left;
+}
+.card-holder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+label {
+  flex: 1;
+  padding: 5px;
+}
+
+input[type="datetime-local"],
+input[type="text"]{
+  flex: 2;
+  border-radius: 5px;
+  width: 190px;
+  float: right
+}
+
+input[type="submit"] {
+  flex: 2;
+  border-radius: 5px;
+  width: 120px;
+  padding: 5px;
+  float: right;
+  background-color: #29bc73;
+  border: 0.5px solid black;
+  cursor: pointer;
+}
+
+.button-link {
+  background-color:#29bc73; 
+  border-radius: 5px; 
+  padding: 5px;
+  color: black; 
+  width: 150px;
+  text-decoration: none;
+  border: 0.5px solid black;
+  cursor: pointer;
+}
+
+select{
+  flex: 2;
+  border-radius: 5px;
+  width: 190px;
+  float: right;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+.col1 {
+  flex: 1; 
+  padding: 6px;
+}
+
+.col2 {
+  flex: 1;
+  padding: 10px;
+  text-align: right; 
+}
+
+table{
+  font-family: monospace;
+  color: red;
+  border-collapse: collapse;
+  pading: 10px;
+  width: 90%;
+}
+
+th, td {
+  border: 1px solid black; /* Add borders to table cells */
+  padding: 4px; /* Add padding to table cells */
+}
+
+th {
+  background-color: #FF0000; /* Header background color */
+  color: #FFF; /* Header text color */
+}
